@@ -29,25 +29,6 @@ void avgtime(int proc[], int n, int burst_time[])
     }
     printf("\nAverage wait time:%d  Average turnaround time:%d \n", total_wt / n, total_tat / n);
 }
-// extra block of code to sort for sjf
-void sort(int proc[],int burst_time[],int n){
-    int a,b;
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            if(burst_time[i]>burst_time[j]){
-                // swap bursttime
-                a=burst_time[i];
-                burst_time[i]=burst_time[j];
-                burst_time[j]=a;
-                // swap proc accordingly
-                b=proc[i];
-                proc[i]=proc[j];
-                proc[j]=b;
-            }
-        }
-    }
-}
-
 void main()
 {
     int proc[10], burst_time[10], n;
@@ -62,6 +43,5 @@ void main()
     }
 
     printf("\n");
-    sort(proc,burst_time,n);
     avgtime(proc, n, burst_time);
 }
